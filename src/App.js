@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   const persons = [
     {
@@ -9,34 +11,57 @@ function App() {
       name: "Alice",
       gender: "male",
       age: "20"
+    },
+    {
+      name: "Kitiyaporn Takham 620610774",
+      gender: "male",
+      age: "20"
     }
   ];
+  const [id, setId] = useState(620610774);
+
+  const adder = () => {
+    setId(id + 1);
+  };
+
+  const minus = () => {
+    setId(id - 1);
+  };
+  const reset = () => {
+    setId(620610774);
+  };
+
   return (
     <div class="ml-2">
       <h3 class="title is-3">Person List</h3>
 
       {/* Convert me to a component! */}
       <table class="table is-bordered mb-3">
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Age</th>
-          </tr>
-          <tr>
-            <td>Bob</td>
-            <td>male</td>
-            <td>50</td>
-          </tr>
-        </tbody>
+        {persons.map((data) => (
+          <>
+            <thead>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{data.name}</td>
+                <td>{data.gender}</td>
+                <td>{data.age}</td>
+              </tr>
+            </tbody>
+            <br />
+          </>
+        ))}
       </table>
 
       {/* Code me please! */}
       <h3 class="title is-3">ID Counter</h3>
-      <p>YOUR ID HERE</p>
-      <button>-</button>
-      <button>reset</button>
-      <button>+</button>
+      <p>{id}</p>
+      <button onClick={minus}>-</button>
+      <button onClick={reset}>reset</button>
+      <button onClick={adder}>+</button>
     </div>
   );
 }
