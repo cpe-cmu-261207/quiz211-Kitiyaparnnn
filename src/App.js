@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {AddTable} from "./AddTable"
 
 function App() {
   const persons = [
@@ -31,6 +32,7 @@ function App() {
     setId(620610774);
   };
 
+
   return (
     <div class="ml-2">
       <h3 class="title is-3">Person List</h3>
@@ -54,6 +56,7 @@ function App() {
             <br />
           </>
         ))}
+        {/* <AddTable ({persons} )/> */}
       </table>
 
       {/* Code me please! */}
